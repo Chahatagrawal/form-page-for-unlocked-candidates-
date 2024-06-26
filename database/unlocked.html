@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+ </head>
+ <body>
+  <header class="bg-white shadow-md p-4 flex justify-between items-center">
+    <div class="text-xl font-semibold">Unlocked Candidates</div>
+  </header>
+  <div class="flex h-screen">
+    <div class="w-64 bg-white border-r dark:bg-zinc-800 dark:border-zinc-700"></div>
+    <div class="bg-zinc-100 p-4 w-full md:w-1/4">
+      <h2 class="text-lg font-semibold flex items-center dark:text-black">
+        <img aria-hidden="true" alt="filter" src="filter.png" class="w-5 h-5 mr-4"/> Filters (0)
+      </h2>
+      <ul class="space-y-4">
+        <li class="bg-white p-2 rounded dark:bg-white-800">Unlocked in (days)</span>
+        </li>
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+         <span class="cursor-pointer dark:text-black-300">Unlocked by</span>
+        </li>
+          
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300" >Show only candidates who</span>
+        </li>
+         
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300">Must-Have Keywords</span>
+        </li>
+          
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300"  >Current City / Area</span>
+          <span class="text-blue-500 text-sm bg-blue-100 px-2 py-1 rounded-full">New</span>
+        </li>
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300">Exclude Keywords</span>
+        </li>
+          
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300">Experience</span>
+        </li>
+          
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300">Annual Salary</span>
+        </li>
+          
+        <li class="bg-white p-2 rounded dark:bg-white-800r">
+          <span class="cursor-pointer dark:text-black-300">Degree/Specialization</span>
+        </li>
+          
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300">Education</span>
+        </li>
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300">Gender</span>
+        </li>
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300">Age</span>
+        </li>
+        <li class="bg-white p-2 rounded dark:bg-white-800">
+          <span class="cursor-pointer dark:text-black-300">Languages</span>
+        </li>
+        
+        </ul>
+
+        
+        
+        <section id="additional-filters" style="display: none;">
+          <ul class="space-y-4">
+            <li class="bg-white p-2 rounded dark:bg-white-800">
+              <span class="cursor-pointer dark:text-black-300">English Fluency Company</span>
+            </li>
+            <li class="bg-white p-2 rounded dark:bg-white-800">
+              <span class="cursor-pointer dark:text-black-300">Current/Previous Company</span>
+            </li>
+            <li class="bg-white p-2 rounded dark:bg-white-800">
+              <span class="cursor-pointer dark:text-black-300">Departments</span>
+            </li>
+            
+          </ul>
+        </section>
+        <button class="text-blue-500 hover:underline flex items-center" id="load-more-filters" onclick="loadMoreFilters()">
+          Load more filters
+          <span class="ml-2">▼</span>
+        </button>
+        
+        <script>
+          function loadMoreFilters() {
+            document.getElementById("additional-filters").style.display = "block";
+          }
+        </script>
+    </div>
+    <main class="flex-1 m=4 p-4 overflow-auto">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center space-x-2">
+          <span class="text-zinc-700 dark:text-zinc-300">Showing</span>
+          <label for="select-options">Select an option:</label>
+  
+          <select id="select-options" class="border rounded p-1 dark:bg-zinc-700 dark:text-zinc-300">
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+          <span class="text-zinc-700 dark:text-zinc-300">per page</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="p-2 border rounded dark:bg-zinc-700 dark:text-zinc-300">&lt;&lt;</button>
+          <span class="text-zinc-700 dark:text-zinc-300">Page 1 of 1</span>
+          <button class="p-2 border rounded dark:bg-zinc-700 dark:text-zinc-300">&gt;&gt;</button>
+        </div>
+        <div class="flex items-center space-x-2">
+          <input type="checkbox" class="form-checkbox dark:bg-zinc-700 dark:border-zinc-600" id="checkbox-id" />
+          <label for="checkbox-id">select all </label>
+          <button class="text-green-600 dark:text-green-400">Download Excel</button>
+        </div>
+      </div>
+      <div class="w-3/4 p-4">
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <img src="image.jpg" alt="No candidates" class=" m-4 mb-4 "/>
+           <h3 class="text-xl font-semibold text-zinc-700 mb-2">No unlocked candidates found</h3>
+            <p class="text-zinc-600 dark:text-zinc-400">Please modify search and expand your search criteria</p>
+          <button class="mt-4 px-4 py-2 bg-green-600 text-white rounded">Modify search</button>
+        </div>
+      </div>
+  </div>
+ 
+  </body>
+</html>
